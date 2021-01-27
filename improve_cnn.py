@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[7]:
-
-
 import torch
 import torchvision
 import torchvision.transforms as transforms
@@ -15,7 +12,6 @@ from sklearn.metrics import confusion_matrix
 import numpy as np
 from PIL import Image
 import time
-# print(PIL.__version__)
 # hyperparamater setting
 train_path='./archive/Train'
 test_path='./archive/Test1'
@@ -42,9 +38,6 @@ testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size,
 # use GPU
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print(device)
-
-
-# In[8]:
 
 
 #torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True)
@@ -105,9 +98,6 @@ if (device=="cuda:0"):
     net.to(device)
 
 
-# In[9]:
-
-
 # CrossEntropyLoss() include softmax step
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(net.parameters(), lr=learn_rate)
@@ -156,9 +146,6 @@ plt.xlabel('Iteration')
 plt.ylabel('loss')
 plt.show()
 print('Finished Training')
-
-
-# In[14]:
 
 
 # calculate Testing Accuracy
@@ -216,10 +203,6 @@ plt.bar(range(len(classes)), acc_test_each,color='r',tick_label=classes)
 plt.tight_layout()
 plt.show()
 
-
-# In[15]:
-
-
 # calculate training Accuracy
 correct = 0
 total = 0
@@ -259,9 +242,6 @@ with torch.no_grad():
             i=i+1
 
 
-# In[16]:
-
-
 print(cfm)
 acc_train_each=[]
 for i in range(43):
@@ -273,10 +253,3 @@ plt.figure(figsize=(15,4))
 plt.bar(range(len(classes)), acc_train_each,color='r',tick_label=classes)
 plt.tight_layout()
 plt.show()
-
-
-# In[ ]:
-
-
-
-

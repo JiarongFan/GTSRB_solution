@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[3]:
-
-
 import numpy as np
 import cvxopt
 import pandas as pd
@@ -27,9 +24,7 @@ test_data=test_data.values
 test_label=test_label.values
 
 
-# In[4]:
-
-
+# Convert the image to feature matrix via HOG
 def HOG(ImageFile):
     # read image
     img = imread(ImageFile)
@@ -41,9 +36,7 @@ def HOG(ImageFile):
     return fd
 
 
-# In[5]:
-
-
+# build train and test matrix for SVM training
 train_mat=[]
 # create training feature matrix
 for x in train_data:
@@ -56,9 +49,7 @@ for x in test_data:
 test_mat=np.array(test_mat)
 
 
-# In[7]:
-
-
+# train the SVM model
 from sklearn.svm import SVC
 from thundersvm import *
 classes = range(0,43)
@@ -67,9 +58,7 @@ clf = SVC(decision_function_shape='ovo')
 clf.fit(train_mat, train_label)
 
 
-# In[19]:
-
-
+# print the result of testing set
 import sklearn.metrics as metrics
 from sklearn.metrics import classification_report, confusion_matrix
 np.set_printoptions(threshold=np.inf)
@@ -92,7 +81,7 @@ print("===========================================")
 avg_acc = np.mean(acc_for_each_class)
 print("average accuracy:%f"%(avg_acc))
 
-
+# print the result of training set
 y_train_pred = clf.predict(train_mat)
 ovo_acc = metrics.accuracy_score(y_train_pred,train_label, classes)
 cm = confusion_matrix(train_label, y_train_pred)
@@ -114,7 +103,3 @@ print("average accuracy:%f"%(avg_acc))
 
 
 # In[ ]:
-
-
-
-
