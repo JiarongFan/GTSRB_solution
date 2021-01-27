@@ -1,9 +1,9 @@
 # GTSRB_solution
  Explore the "Germany Traffic Sign Recognition Benchmark" dataset, implement some method(s) for traffic sign classification
- 
+
 # Data Processing
 
-The training data and test data already have been reallocated to 43 different folders based on the image classes. The ImageFolder function of pytorch can read these image data and generate 3-channel feature matrix with labels. 
+The training data and test data already have been reallocated to 43 different folders based on the image classes. The ImageFolder function of pytorch can read these image data and generate 3-channel feature matrix with labels.
 
 # Environment Requirement and Execution<br>
 Python3
@@ -23,14 +23,14 @@ I used skimage and scikit-learn for HOG and SVM. For the multi-class, single-ima
 
 2. Basic CNN(2-layer)<br>
 I used convolutional neural network for the multi-class image classification. First of all, I have used a very basic 2-layer CNN for the image classification task. The architecture of the basic 2-layer CNN is shown below:<br>
-![image](https://github.com/JiarongFan/GTSRB_solution/blob/main/basic_cnn_arch.png)<br>
+![image](https://github.com/JiarongFan/GTSRB_solution/blob/master/basic_cnn_arch.png)<br>
 **Train accuracy: 95%**<br>
 **Test accuracy: 86%**<br>
 The detail of each class accuracy see the technical report and cm.txt (confusion matrix)<br>
 
 3. Improved CNN<br>
 To achieve higher accuracy of the CNN classifier, I have modified the basic 2-layer CNN architecture. I have added more convolutional layer and deeper neural network. In order to avoid overfitting, I have added dropout mechanism. I also pick up some ideas from VGG16, the convolutional layer only changes the deep of the image and the pooling layer only change the width and height of the image. The improved 6-layer CNN is shown below:<br>
-![image](https://github.com/JiarongFan/GTSRB_solution/blob/main/improve_cnn_arch.png)<br>
+![image](https://github.com/JiarongFan/GTSRB_solution/blob/master/improve_cnn_arch.png)<br>
 **Train accuracy: 97%**<br>
 **Test accuracy: 91%**<br>
 The detail of each class accuracy see the technical report and cm.txt (confusion matrix)<br>
