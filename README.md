@@ -35,7 +35,7 @@ To achieve higher accuracy of the CNN classifier, I have modified the basic 2-la
 **Test accuracy: 91%**<br>
 The detail of each class accuracy see the technical report and cm.txt (confusion matrix)<br>
 
-#optional task: GANs for image generation
+# optional task: GANs for image generation
 Generative models can be used to generate similar or different style images from a dataset, which can be used in data augmentation. Ian Goodfellow proposed Generative Adversarial Network (GNN), which can generate similar or different style images by the game of two neural networks. I modified a demo so that it can work on the GTSRB dataset<br>
 Execution:<br>
 Use command: <br>
